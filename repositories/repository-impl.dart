@@ -10,4 +10,21 @@ class RepositoryImpl<T, ID> implements Repository<T, ID> {
     print("Cadastrado");
     return obj;
   }
+
+  T buscarPorID(ID id) {
+    T elemento;
+    _lista.forEach((element) {
+      if (element.id == id) {
+        elemento = element;
+      }
+    });
+    return elemento;
+  }
+
+  @override
+  void excluir(T o) {
+    int indice = _lista.indexOf(o);
+    _lista.removeAt(indice);
+    print("Removido");
+  }
 }
